@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Churrasco</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="title">
+        <h1>Calculadora de Churrasco</h1>
+        <p>Mais precisão para o seu churrasco.</p>
+    </div>
+    <div id="resultado" class="container">
+    </div>
+
+    <div class="container">
+        <button id="refazerCalculoBtn" class="btn">Refazer Cálculo</button>
+    </div>
+
+    <div class="credito">
+        <a href="https://br.freepik.com/" rel="noopener noreferrer">Illustrated by Freepik</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const carne = parseFloat(urlParams.get('carne'));
+            const frango = parseFloat(urlParams.get('frango'));
+            const linguica = parseFloat(urlParams.get('linguica'));
+            const refrigerante = parseFloat(urlParams.get('refrigerante'));
+            const cerveja = parseFloat(urlParams.get('cerveja'));
+
+            const items = [
+                { name: 'Carne bovina', value: carne, unit: 'kg' },
+                { name: 'Frango', value: frango, unit: 'kg' },
+                { name: 'Linguiça', value: linguica, unit: 'kg' },
+                { name: 'Refrigerante', value: refrigerante, unit: 'litros' },
+                { name: 'Cerveja', value: cerveja, unit: 'litros' }
+            ];
+
+            let resultadoHtml = '';
+            const hasPurchases = items.some(item => item.value > 0);
+
+            if (hasPurchases) {
+                resultadoHtml = '<div class="question"><p>Aqui o que você vai precisar para o seu churrasco:</p></div><ul class="shopping-list">';
+                items.forEach(item => {
+                    if (item.value > 0) {
+                        resultadoHtml += `<li>${item.name}: ${item.value.toFixed(2)} ${item.unit}</li>`;
+                    }
+                });
+                resultadoHtml += '</ul>';
+            } else {
+                resultadoHtml = '<div class="question"><p>Parece que não haverá churrasco!</p></div>';
+            }
+
+            document.getElementById('resultado').innerHTML = resultadoHtml;
+
+            document.getElementById('refazerCalculoBtn').addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>

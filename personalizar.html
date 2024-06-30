@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Churrasco</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="title">
+        <h1>Calculadora de Churrasco</h1>
+        <p>Mais precisão para o seu churrasco.</p>
+    </div>
+    <div class="question">
+        <p>Selecione os ingredientes do seu churrasco:</p>
+    </div>
+    <form id="personalizarForm">
+        <button type="button" id="carneBtn" class="toggle-btn"><span>Carne</span><img src="assets/icone.png" alt="Ícone Touro" class="icon"></button>
+        <button type="button" id="frangoBtn" class="toggle-btn"><span>Frango</span><img src="assets/icone.png" alt="Ícone Touro" class="icon"></button>
+        <button type="button" id="linguicaBtn" class="toggle-btn"><span>Linguiça</span><img src="assets/icone.png" alt="Ícone Touro" class="icon"></button>
+        <button type="button" id="refrigeranteBtn" class="toggle-btn"><span>Refrigerante</span><img src="assets/icone.png" alt="Ícone Touro" class="icon"></button>
+        <button type="button" id="cervejaBtn" class="toggle-btn"><span>Cerveja</span><img src="assets/icone.png" alt="Ícone Touro" class="icon"></button>
+        <button type="button" id="salvarBtn">Salvar e Voltar</button>
+    </form>    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const salvarBtn = document.getElementById('salvarBtn');
+            
+            // Carregar seleções do Local Storage
+            const selectedItems = JSON.parse(localStorage.getItem('selectedItems')) || {
+                carne: true,
+                frango: true,
+                linguica: true,
+                refrigerante: true,
+                cerveja: true,
+            };
+
+            // Atualizar estado dos botões
+            document.getElementById('carneBtn').classList.toggle('active', selectedItems.carne);
+            document.getElementById('frangoBtn').classList.toggle('active', selectedItems.frango);
+            document.getElementById('linguicaBtn').classList.toggle('active', selectedItems.linguica);
+            document.getElementById('refrigeranteBtn').classList.toggle('active', selectedItems.refrigerante);
+            document.getElementById('cervejaBtn').classList.toggle('active', selectedItems.cerveja);
+
+            // Adiciona ou remove a seleção ao clicar nos botões
+            document.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const itemId = this.id.replace('Btn', '');
+                    selectedItems[itemId] = !selectedItems[itemId];
+                    this.classList.toggle('active', selectedItems[itemId]);
+                });
+            });
+
+            // Event listener para o botão de salvar e voltar
+            if(salvarBtn) {
+                salvarBtn.addEventListener('click', function() {
+                    localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
+                    window.location.href = 'index.html';
+                });
+            }
+        });
+    </script>
+    <div class="credito">
+        <a href="https://br.freepik.com/" rel="noopener noreferrer">Illustrated by Freepik</a>
+    </div>
+</body>
+</html>

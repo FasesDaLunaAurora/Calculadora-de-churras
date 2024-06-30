@@ -1,0 +1,286 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background: url('assets/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title h1 {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 2.5em;
+    color: white;
+    margin: 0;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.title p {
+    font-size: 1.2em;
+    color: #a3321e;
+    margin: 0;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.question {
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 1.2em;
+}
+
+.container {
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.label {
+    margin-right: 10px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    border: 2px solid #a3321e;
+}
+
+.btn-minus, .btn-plus {
+    background-color: #a3321e;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border: 2px solid #a3321e;
+}
+
+input[type="text"] {
+    width: 40px;
+    text-align: center;
+    padding: 5px;
+    border: 2px solid white;
+}
+
+button {
+    background-color: #a3321e;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px solid #a3321e;
+}
+
+#calcularBtn {
+    margin-top: 15px;
+    background-color: #a3321e;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 150px;
+}
+
+#calcularBtn:hover {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+#resultado {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.credito {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.8em;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+.credito a {
+    color: #ddd;
+    text-decoration: underline;
+}
+
+.credito a:hover {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.personalizarBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #a3321e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.personalizarBtn:hover {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.shopping-list {
+    list-style: none;
+    padding: 0;
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 1.2em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.shopping-list li {
+    margin-bottom: 10px;
+}
+
+.btn {
+    margin-top: 20px;
+    background-color: #a3321e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn:hover {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.toggle-btn {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color: white;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    position: relative;
+    list-style: none;
+    padding: 5px 10px;
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 1.2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    width: 200px;
+}
+
+.toggle-btn img.icon {
+    width: 20px;
+    margin-left: auto;
+    display: none;
+}
+
+.toggle-btn.active img.icon {
+    display: inline-block;
+}
+
+#salvarBtn {
+    margin-top: 15px;
+    background-color: #a3321e;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+}
+
+#salvarBtn:hover {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+}
+/* Estilos responsivos */
+@media (max-width: 480px) {
+    .title h1 {
+        font-size: 2em;
+    }
+
+    .title p {
+        font-size: 1em;
+    }
+
+    .question {
+        font-family: 'Fredericka the Great', cursive;
+        font-size: 1.2em;
+    }
+
+    .form-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .input-group {
+        margin: 5px;
+    }
+
+    .label {
+        margin-right: 5px;
+    }
+
+    .quantity {
+        flex-direction: column;
+    }
+
+    .btn-minus, .btn-plus {
+        padding: 3px 8px;
+        font-size: 12px;
+    }
+
+    input[type="text"] {
+        width: 30px;
+        padding: 3px;
+    }
+
+    button {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    #calcularBtn {
+        width: 120px;
+        font-size: 12px;
+    }
+
+    .toggle-btn {
+        font-size: 1em;
+        width: 150px;
+    }
+}
